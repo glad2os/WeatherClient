@@ -9,10 +9,10 @@ namespace WeatherApp.api
     public class Api
     {
         private const string DefaultCity = "Астрахань";
-        private static readonly string ApiKey = new Config().ApiKey;
+        private static readonly string ApiKey = "?apikey=" + new Config().ApiKey;
 
         private static readonly string ApiCityLink =
-            "http://dataservice.accuweather.com/locations/v1/cities/search?apikey=" + ApiKey;
+            "http://dataservice.accuweather.com/locations/v1/cities/search" + ApiKey;
 
         private const string ApiForecastLink = "http://dataservice.accuweather.com/forecasts/v1/daily/1day/";
         private const string ApiCurrentConditionsLink = "http://dataservice.accuweather.com/currentconditions/v1/";
@@ -45,7 +45,7 @@ namespace WeatherApp.api
         public dynamic GetForecasts(string forecasts)
         {
             var responseDataString =
-                ContentFromApi(ApiForecastLink + forecasts + "?apikey=" + ApiKey + WebArgs);
+                ContentFromApi(ApiForecastLink + forecasts + ApiKey + WebArgs);
             if (responseDataString == null) throw new EmptyData();
 
             dynamic cityDeserializeObject = JsonConvert.DeserializeObject(responseDataString);
@@ -55,9 +55,9 @@ namespace WeatherApp.api
             return dynamicObject;
         }
 
-        public static dynamic GetCurrentWeather(string key = null)
+        public static dynamic GetCurrentWeather(string cityKey = null)
         {
-            var responseDataString = ContentFromApi(ApiCurrentConditionsLink + key + "?apikey=" + ApiKey + WebArgs);
+            var responseDataString = ContentFromApi(ApiCurrentConditionsLink + cityKey + ApiKey + WebArgs);
             if (responseDataString == null) throw new EmptyData();
 
             dynamic cityDeserializeObject = JsonConvert.DeserializeObject(responseDataString);
