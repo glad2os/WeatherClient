@@ -21,13 +21,15 @@ namespace WeatherApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // var file = File.ReadAllText(@"C:\Users\glad2os\RiderProjects\WeatherApp\bin\Debug\Moscow.json");
-            // dynamic stuff = JsonConvert.DeserializeObject(file);
-            // dynamic jopa = stuff[0];
+
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != (int) Keys.Enter) return;
             
-            var getCity = Api.GetCity();
+            var getCity = Api.GetCity(textBox1.Text);
             string key = getCity.Key;
-            
         }
     }
 }

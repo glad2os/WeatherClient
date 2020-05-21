@@ -53,6 +53,7 @@
     <ItemGroup>
         <Compile Include="config\config.cs" />
         <Compile Include="entities\CityEntitie.cs" />
+        <Compile Include="exception\EmptyData.cs" />
         <Compile Include="exception\ServerError.cs" />
         <Compile Include="Form1.cs">
             <SubType>Form</SubType>
