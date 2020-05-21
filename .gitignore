@@ -6,3 +6,5 @@ riderModule.iml
 config/
 /.idea/
 config/config.cs
+/Moscow.json
+/CurrentWeather.json
