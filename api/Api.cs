@@ -1,8 +1,13 @@
-﻿using System.Net.Http;
+﻿using System;
+using System.Net;
+using System.Net.Http;
 using System.Runtime.Remoting;
+using System.Windows.Forms;
 using Newtonsoft.Json;
 using WeatherApp.exception;
 using WeatherApp.config;
+using WeatherApp.entities;
+using static System.String;
 
 namespace WeatherApp.api
 {
@@ -18,6 +23,9 @@ namespace WeatherApp.api
         private const string ApiCurrentConditionsLink = "http://dataservice.accuweather.com/currentconditions/v1/";
         private const string WebArgs = "&language=ru-RU&metric=true&details=true";
 
+        public const string ApiWeatherIconLink = "https://developer.accuweather.com/sites/default/files/";
+        //n.ToString("D2")
+
         private static string ContentFromApi(string requestUri)
         {
             using var client = new HttpClient();
@@ -25,33 +33,47 @@ namespace WeatherApp.api
                 new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
             var response = client.GetAsync(requestUri).Result;
-            if (!response.IsSuccessStatusCode) throw new ServerException(response.StatusCode.ToString());
             var content = response.Content.ReadAsStringAsync().Result;
+
+            if (!response.IsSuccessStatusCode && !IsNullOrEmpty(content))
+            {
+                var accuWeatherError = JsonConvert.DeserializeObject<AccuError>(content);
+                throw new BadRequest(accuWeatherError.Message);
+            }
+
+            if (!response.IsSuccessStatusCode) throw new BadRequest(response.StatusCode.ToString());
             return content;
         }
+
 
         public static dynamic GetCity(string city = DefaultCity)
         {
             var responseDataString = ContentFromApi(ApiCityLink + "&q=" + city + "&language=ru-RU");
-            if (responseDataString == null) throw new EmptyData();
+            switch (responseDataString)
+            {
+                case null:
+                    throw new EmptyData("Город не найден!");
+                case "[]":
+                    throw new EmptyData("Город не найден!");
+            }
 
             dynamic cityDeserializeObject = JsonConvert.DeserializeObject(responseDataString);
-            if (cityDeserializeObject == null) throw new ServerError("Пустой запрос");
+            if (cityDeserializeObject == null) throw new BadRequest("Пустой запрос");
 
             var dynamicObject = cityDeserializeObject[0];
             return dynamicObject;
         }
 
-        public dynamic GetForecasts(string forecasts)
+        public static dynamic GetForecasts(string cityKey = null)
         {
             var responseDataString =
-                ContentFromApi(ApiForecastLink + forecasts + ApiKey + WebArgs);
+                ContentFromApi(ApiForecastLink + cityKey + ApiKey + "&language=ru-RU&metric=true");
             if (responseDataString == null) throw new EmptyData();
 
             dynamic cityDeserializeObject = JsonConvert.DeserializeObject(responseDataString);
-            if (cityDeserializeObject == null) throw new ServerError("Пустой запрос");
+            if (cityDeserializeObject == null) throw new BadRequest("Пустой запрос");
 
-            var dynamicObject = cityDeserializeObject[0];
+            var dynamicObject = cityDeserializeObject;
             return dynamicObject;
         }
 
@@ -61,7 +83,7 @@ namespace WeatherApp.api
             if (responseDataString == null) throw new EmptyData();
 
             dynamic cityDeserializeObject = JsonConvert.DeserializeObject(responseDataString);
-            if (cityDeserializeObject == null) throw new ServerError("Пустой запрос");
+            if (cityDeserializeObject == null) throw new BadRequest("Пустой запрос");
 
             var dynamicObject = cityDeserializeObject[0];
             return dynamicObject;

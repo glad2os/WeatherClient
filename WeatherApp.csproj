@@ -52,9 +52,9 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="config\config.cs" />
-        <Compile Include="entities\CityEntitie.cs" />
+        <Compile Include="entities\AccuError.cs" />
         <Compile Include="exception\EmptyData.cs" />
-        <Compile Include="exception\ServerError.cs" />
+        <Compile Include="exception\BadRequest.cs" />
         <Compile Include="Form1.cs">
             <SubType>Form</SubType>
         </Compile>
