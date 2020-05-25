@@ -141,18 +141,18 @@
             this.currentRealFeelTemperatureLabel.AutoSize = true;
             this.currentRealFeelTemperatureLabel.Location = new System.Drawing.Point(226, 113);
             this.currentRealFeelTemperatureLabel.Name = "currentRealFeelTemperatureLabel";
-            this.currentRealFeelTemperatureLabel.Size = new System.Drawing.Size(35, 13);
+            this.currentRealFeelTemperatureLabel.Size = new System.Drawing.Size(23, 13);
             this.currentRealFeelTemperatureLabel.TabIndex = 5;
-            this.currentRealFeelTemperatureLabel.Text = "label6";
+            this.currentRealFeelTemperatureLabel.Text = "null";
             // 
             // currentRealFeelTemperatureShadeLabel
             // 
             this.currentRealFeelTemperatureShadeLabel.AutoSize = true;
             this.currentRealFeelTemperatureShadeLabel.Location = new System.Drawing.Point(226, 132);
             this.currentRealFeelTemperatureShadeLabel.Name = "currentRealFeelTemperatureShadeLabel";
-            this.currentRealFeelTemperatureShadeLabel.Size = new System.Drawing.Size(35, 13);
+            this.currentRealFeelTemperatureShadeLabel.Size = new System.Drawing.Size(23, 13);
             this.currentRealFeelTemperatureShadeLabel.TabIndex = 5;
-            this.currentRealFeelTemperatureShadeLabel.Text = "label7";
+            this.currentRealFeelTemperatureShadeLabel.Text = "null";
             // 
             // label8
             // 
@@ -288,9 +288,9 @@
             this.UVIndexLabel.AutoSize = true;
             this.UVIndexLabel.Location = new System.Drawing.Point(384, 53);
             this.UVIndexLabel.Name = "UVIndexLabel";
-            this.UVIndexLabel.Size = new System.Drawing.Size(41, 13);
+            this.UVIndexLabel.Size = new System.Drawing.Size(13, 13);
             this.UVIndexLabel.TabIndex = 31;
-            this.UVIndexLabel.Text = "label31";
+            this.UVIndexLabel.Text = "0";
             // 
             // WindLabel
             // 
@@ -315,54 +315,54 @@
             this.PressureLabel.AutoSize = true;
             this.PressureLabel.Location = new System.Drawing.Point(384, 128);
             this.PressureLabel.Name = "PressureLabel";
-            this.PressureLabel.Size = new System.Drawing.Size(41, 13);
+            this.PressureLabel.Size = new System.Drawing.Size(13, 13);
             this.PressureLabel.TabIndex = 32;
-            this.PressureLabel.Text = "label31";
+            this.PressureLabel.Text = "0";
             // 
             // DewPointLabel
             // 
             this.DewPointLabel.AutoSize = true;
             this.DewPointLabel.Location = new System.Drawing.Point(384, 113);
             this.DewPointLabel.Name = "DewPointLabel";
-            this.DewPointLabel.Size = new System.Drawing.Size(41, 13);
+            this.DewPointLabel.Size = new System.Drawing.Size(13, 13);
             this.DewPointLabel.TabIndex = 33;
-            this.DewPointLabel.Text = "label31";
+            this.DewPointLabel.Text = "0";
             // 
             // RelativeHumidityLabel
             // 
             this.RelativeHumidityLabel.AutoSize = true;
             this.RelativeHumidityLabel.Location = new System.Drawing.Point(384, 98);
             this.RelativeHumidityLabel.Name = "RelativeHumidityLabel";
-            this.RelativeHumidityLabel.Size = new System.Drawing.Size(41, 13);
+            this.RelativeHumidityLabel.Size = new System.Drawing.Size(13, 13);
             this.RelativeHumidityLabel.TabIndex = 34;
-            this.RelativeHumidityLabel.Text = "label36";
+            this.RelativeHumidityLabel.Text = "0";
             // 
             // CeilingLabel
             // 
             this.CeilingLabel.AutoSize = true;
             this.CeilingLabel.Location = new System.Drawing.Point(384, 173);
             this.CeilingLabel.Name = "CeilingLabel";
-            this.CeilingLabel.Size = new System.Drawing.Size(41, 13);
+            this.CeilingLabel.Size = new System.Drawing.Size(13, 13);
             this.CeilingLabel.TabIndex = 35;
-            this.CeilingLabel.Text = "label31";
+            this.CeilingLabel.Text = "0";
             // 
             // VisibilityLabel
             // 
             this.VisibilityLabel.AutoSize = true;
             this.VisibilityLabel.Location = new System.Drawing.Point(384, 158);
             this.VisibilityLabel.Name = "VisibilityLabel";
-            this.VisibilityLabel.Size = new System.Drawing.Size(41, 13);
+            this.VisibilityLabel.Size = new System.Drawing.Size(13, 13);
             this.VisibilityLabel.TabIndex = 36;
-            this.VisibilityLabel.Text = "label31";
+            this.VisibilityLabel.Text = "0";
             // 
             // CloudCoverLabel
             // 
             this.CloudCoverLabel.AutoSize = true;
             this.CloudCoverLabel.Location = new System.Drawing.Point(384, 143);
             this.CloudCoverLabel.Name = "CloudCoverLabel";
-            this.CloudCoverLabel.Size = new System.Drawing.Size(41, 13);
+            this.CloudCoverLabel.Size = new System.Drawing.Size(13, 13);
             this.CloudCoverLabel.TabIndex = 37;
-            this.CloudCoverLabel.Text = "label39";
+            this.CloudCoverLabel.Text = "0";
             // 
             // dayStatusLabel
             // 
